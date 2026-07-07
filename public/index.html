@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>装备领取活动</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <section class="auth-gate" id="authGate" aria-live="polite">
+      <form class="auth-card" id="authForm">
+        <h1>请输入访问密码</h1>
+        <input id="authPassword" type="password" autocomplete="current-password" placeholder="访问密码" aria-label="访问密码">
+        <button type="submit">进入网页</button>
+        <p id="authStatus" role="status"></p>
+      </form>
+    </section>
+
+    <main class="campaign-shell" id="campaignShell" hidden>
+      <section class="phone-stage" aria-live="polite">
+        <header class="top-bar">
+          <span id="eyebrow">前往礼包码兑换</span>
+        </header>
+
+        <div class="floating-side-access" id="floatingSideAccess">
+          <img id="sideCharacter" class="side-character" alt="侧边人物">
+          <div class="ribbon" id="sideRibbon">权益退订通道</div>
+        </div>
+
+        <div class="hero-wrap">
+          <img id="bannerImage" class="hero-image" alt="活动横幅">
+          <div class="banner-overlay-text" id="bannerOverlayText">参与活动即可获得丰厚游戏奖励</div>
+        </div>
+
+        <section class="title-area">
+          <h1 id="pageTitle">《和平精英》主播专属赠送</h1>
+          <p id="subtitle">限时福利装备领取</p>
+        </section>
+
+        <section class="equipment-list" id="equipmentList"></section>
+      </section>
+    </main>
+
+    <div class="claim-modal-overlay" id="claimModal" hidden>
+      <section class="claim-modal" role="dialog" aria-modal="true" aria-labelledby="claimModalTitle">
+        <button class="claim-modal-close" id="claimModalClose" type="button" aria-label="关闭">×</button>
+        <h2 id="claimModalTitle">领取「熔岩双刃」</h2>
+        <div class="claim-modal-divider"></div>
+        <div class="claim-field-row claim-field-input">
+          <span id="claimNameLabel">* 游戏名称</span>
+          <input id="claimNameInput" type="text" value="天成" aria-label="游戏名称">
+        </div>
+        <div class="claim-field-row claim-field-input">
+          <span id="claimChannelLabel">* 渠道</span>
+          <select id="claimChannelSelect" aria-label="渠道"></select>
+        </div>
+        <div class="claim-loading" id="claimLoading" hidden>
+          <span class="claim-spinner" aria-hidden="true"></span>
+          <span id="claimLoadingText">领取中</span>
+        </div>
+        <button class="claim-submit" id="claimSubmit" type="button">点击领取</button>
+      </section>
+    </div>
+
+    <div class="claim-result-toast" id="claimResultToast" hidden>领取成功，24小时后登陆游戏查看游戏</div>
+
+    <template id="equipmentTemplate">
+      <article class="equipment-card">
+        <div class="card-meta">
+          <span class="time"></span>
+          <span class="stock"></span>
+        </div>
+        <div class="item-main">
+          <div class="image-box">
+            <span class="rank"></span>
+            <img alt="">
+          </div>
+          <div class="item-info">
+            <h2></h2>
+            <div class="price-row">
+              <strong></strong>
+              <span></span>
+            </div>
+            <button type="button"></button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

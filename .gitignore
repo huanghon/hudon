@@ -1,0 +1,16 @@
+*
+
+!.dockerignore
+!.gitignore
+!Dockerfile
+!docker-compose.yml
+!DOCKER.md
+!README.md
+!package.json
+!server.js
+
+!data/
+!data/**
+
+!public/
+!public/**

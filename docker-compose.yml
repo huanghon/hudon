@@ -1,0 +1,16 @@
+services:
+  equipment-campaign-site:
+    build: .
+    image: equipment-campaign-site:latest
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      DATA_DIR: /app/data
+      SEED_CONFIG_FILE: /app/data.seed/site-config.json
+    volumes:
+      - equipment-campaign-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  equipment-campaign-data:

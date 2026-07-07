@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>活动后台</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="admin-body">
+    <section class="auth-gate auth-gate-admin" id="authGate" aria-live="polite">
+      <form class="auth-card" id="authForm">
+        <h1>后台访问密码</h1>
+        <input id="authPassword" type="password" autocomplete="current-password" placeholder="访问密码" aria-label="访问密码">
+        <button type="submit">进入后台</button>
+        <p id="authStatus" role="status"></p>
+      </form>
+    </section>
+
+    <main class="admin-layout" id="adminLayout" hidden>
+      <section class="admin-panel">
+        <div class="admin-heading">
+          <div>
+            <p>活动后台</p>
+            <h1>编辑前台页面</h1>
+          </div>
+          <a href="/" class="ghost-button">查看前台</a>
+        </div>
+
+        <form id="adminForm">
+          <section class="editor-section">
+            <h2>页面内容</h2>
+            <label>
+              访问密码
+              <input name="accessPassword" type="password" maxlength="80" autocomplete="new-password" placeholder="留空则不修改">
+            </label>
+            <label>
+              顶部小字
+              <input name="eyebrow" type="text" maxlength="80">
+            </label>
+            <label>
+              主标题
+              <input name="pageTitle" type="text" maxlength="80">
+            </label>
+            <label>
+              副标题
+              <input name="subtitle" type="text" maxlength="120">
+            </label>
+            <label>
+              侧边竖条文字
+              <input name="sideRibbon" type="text" maxlength="40">
+            </label>
+            <div class="field-grid">
+              <label>
+                侧边人物图片地址
+                <input name="characterImage" type="text" placeholder="/uploads/character-upper.png">
+              </label>
+              <label>
+                上传侧边人物
+                <input id="characterUpload" type="file" accept="image/*">
+              </label>
+            </div>
+            <label class="toggle-field">
+              <input name="characterVisible" type="checkbox">
+              显示侧边人物和权益退订通道
+            </label>
+            <div class="field-grid">
+              <label>
+                背景颜色
+                <input name="backgroundColor" type="color">
+              </label>
+              <label>
+                按钮颜色
+                <input name="accentColor" type="color">
+              </label>
+              <label>
+                文字颜色
+                <input name="textColor" type="color">
+              </label>
+              <label>
+                装备数量
+                <input name="equipmentCount" type="number" min="1" max="20" step="1">
+              </label>
+            </div>
+            <label>
+              横幅图片地址
+              <input name="bannerImage" type="text" placeholder="/uploads/sample-banner.jpg">
+            </label>
+            <label>
+              横幅底部文字
+              <input name="bannerOverlayText" type="text" maxlength="120">
+            </label>
+            <label>
+              横幅文字框颜色
+              <input name="bannerOverlayBorderColor" type="color">
+            </label>
+            <label class="file-field">
+              上传横幅图片
+              <input id="bannerUpload" type="file" accept="image/*">
+            </label>
+          </section>
+
+          <section class="editor-section">
+            <h2>领取弹窗</h2>
+            <label>
+              弹窗标题模板
+              <input name="claimModalTitleTemplate" type="text" maxlength="80" placeholder="领取「{item}」">
+            </label>
+            <div class="field-grid">
+              <label>
+                游戏名称标签
+                <input name="claimModalNameLabel" type="text" maxlength="40">
+              </label>
+              <label>
+                游戏名称内容
+                <input name="claimModalNameValue" type="text" maxlength="40">
+              </label>
+              <label>
+                渠道标签
+                <input name="claimModalChannelLabel" type="text" maxlength="40">
+              </label>
+              <label>
+                默认渠道
+                <input name="claimModalChannelValue" type="text" maxlength="40">
+              </label>
+              <label>
+                渠道选项
+                <input name="claimModalChannelOptions" type="text" maxlength="120" placeholder="QQ,微信">
+              </label>
+              <label>
+                弹窗按钮文字
+                <input name="claimModalButtonText" type="text" maxlength="40">
+              </label>
+              <label>
+                领取中文字
+                <input name="claimLoadingText" type="text" maxlength="40">
+              </label>
+              <label>
+                领取中文字颜色
+                <input name="claimLoadingColor" type="color">
+              </label>
+              <label>
+                成功提示文字
+                <input name="claimSuccessText" type="text" maxlength="120">
+              </label>
+            </div>
+          </section>
+
+          <section class="editor-section">
+            <div class="section-title-row">
+              <h2>装备配置</h2>
+              <span>最多 20 个</span>
+            </div>
+            <div id="itemsEditor" class="items-editor"></div>
+          </section>
+
+          <div class="admin-actions">
+            <button class="primary-button" type="submit">保存配置</button>
+            <button class="ghost-button" id="resetButton" type="button">恢复默认</button>
+            <span id="saveStatus" role="status"></span>
+          </div>
+        </form>
+      </section>
+
+      <aside class="preview-panel">
+        <div class="preview-frame">
+          <iframe title="前台预览" src="/"></iframe>
+        </div>
+      </aside>
+    </main>
+
+    <template id="itemEditorTemplate">
+      <article class="item-editor-card">
+        <div class="item-editor-head">
+          <h3></h3>
+          <label>
+            图片文件
+            <input class="item-upload" type="file" accept="image/*">
+          </label>
+        </div>
+        <div class="item-editor-grid">
+          <label>
+            名称
+            <input data-field="name" type="text" maxlength="80">
+          </label>
+          <label>
+            图片地址
+            <input data-field="image" type="text">
+          </label>
+          <label>
+            倒计时
+            <input data-field="timeLabel" type="text" maxlength="80">
+          </label>
+          <label>
+            库存文字
+            <input data-field="stockLabel" type="text" maxlength="80">
+          </label>
+          <label>
+            当前价格
+            <input data-field="price" type="text" maxlength="20">
+          </label>
+          <label>
+            原价
+            <input data-field="originalPrice" type="text" maxlength="20">
+          </label>
+          <label>
+            按钮文字
+            <input data-field="buttonText" type="text" maxlength="20">
+          </label>
+        </div>
+      </article>
+    </template>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>
