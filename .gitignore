@@ -9,8 +9,15 @@
 !package.json
 !server.js
 
+!netlify.toml
+!netlify/
+!netlify/**
+
 !data/
 !data/**
+
+!docs/
+!docs/netlify-supabase-deploy.md
 
 !public/
 !public/**

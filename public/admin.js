@@ -4,7 +4,7 @@ const form = document.getElementById("adminForm");
 const itemsEditor = document.getElementById("itemsEditor");
 const itemTemplate = document.getElementById("itemEditorTemplate");
 const saveStatus = document.getElementById("saveStatus");
-const MAX_UPLOAD_SIZE = 1.5 * 1024 * 1024;
+const MAX_UPLOAD_SIZE = 3 * 1024 * 1024;
 
 async function fetchConfig() {
   const response = await fetch("/api/config", { cache: "no-store" });
@@ -68,10 +68,10 @@ function clampEquipmentCount(value) {
   return Math.max(1, Math.min(20, count));
 }
 
-function readImageFile(file) {
+function fileToDataUrl(file) {
   return new Promise((resolve, reject) => {
     if (file.size > MAX_UPLOAD_SIZE) {
-      reject(new Error("图片不能超过 1.5MB，建议先压缩后再上传。"));
+      reject(new Error("图片不能超过 3MB，建议先压缩后再上传。"));
       return;
     }
     const reader = new FileReader();
@@ -79,6 +79,24 @@ function readImageFile(file) {
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
+}
+
+async function uploadImageFile(file) {
+  const dataUrl = await fileToDataUrl(file);
+  const response = await fetch("/api/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      fileName: file.name,
+      dataUrl
+    })
+  });
+  if (!response.ok) {
+    const payload = await response.json().catch(() => ({}));
+    throw new Error(payload.error || "Image upload failed");
+  }
+  const payload = await response.json();
+  return payload.url;
 }
 
 function fillForm(config) {
@@ -142,9 +160,11 @@ function renderItemEditors() {
       const file = event.target.files[0];
       if (!file) return;
       try {
-        const dataUrl = await readImageFile(file);
-        currentConfig.items[index].image = dataUrl;
-        card.querySelector('[data-field="image"]').value = dataUrl;
+        saveStatus.textContent = "Uploading image...";
+        const imageUrl = await uploadImageFile(file);
+        currentConfig.items[index].image = imageUrl;
+        card.querySelector('[data-field="image"]').value = imageUrl;
+        saveStatus.textContent = "";
       } catch (error) {
         saveStatus.textContent = error.message;
       }
@@ -201,7 +221,9 @@ document.getElementById("bannerUpload").addEventListener("change", async (event)
   const file = event.target.files[0];
   if (!file) return;
   try {
-    form.elements.bannerImage.value = await readImageFile(file);
+    saveStatus.textContent = "Uploading image...";
+    form.elements.bannerImage.value = await uploadImageFile(file);
+    saveStatus.textContent = "";
   } catch (error) {
     saveStatus.textContent = error.message;
   }
@@ -211,7 +233,9 @@ document.getElementById("characterUpload").addEventListener("change", async (eve
   const file = event.target.files[0];
   if (!file) return;
   try {
-    form.elements.characterImage.value = await readImageFile(file);
+    saveStatus.textContent = "Uploading image...";
+    form.elements.characterImage.value = await uploadImageFile(file);
+    saveStatus.textContent = "";
   } catch (error) {
     saveStatus.textContent = error.message;
   }
