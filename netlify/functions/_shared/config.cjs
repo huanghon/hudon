@@ -10,210 +10,210 @@ const MAX_UPLOAD_BYTES = 3 * 1024 * 1024;
 
 function defaultConfig() {
   return {
-    accessPassword: DEFAULT_ACCESS_PASSWORD,
-    pageTitle: "《和平精英》主播专属赠送",
-    eyebrow: "前往礼包码兑换",
-    subtitle: "限时福利装备领取",
-    backgroundColor: "#526780",
-    accentColor: "#d71920",
-    textColor: "#ffffff",
-    claimLoadingColor: "#6fbfff",
-    bannerImage: "/uploads/event-banner-weapons.png",
-    bannerOverlayText: "参与活动即可获得丰厚游戏奖励",
-    bannerOverlayBorderColor: "#af0e4e",
-    characterImage: "/uploads/character-upper.png",
-    characterVisible: true,
-    sideRibbon: "权益退订通道",
-    claimModalTitleTemplate: "领取「{item}」",
-    claimModalNameLabel: "* 游戏名称",
-    claimModalNameValue: "天成",
-    claimModalChannelLabel: "* 渠道",
-    claimModalChannelValue: "QQ",
-    claimModalChannelOptions: "QQ,微信",
-    claimModalButtonText: "点击领取",
-    claimLoadingText: "领取中...",
-    claimSuccessText: "领取成功！24小时后登录游戏查看游戏仓库",
-    equipmentCount: 20,
-    items: [
+    "accessPassword": DEFAULT_ACCESS_PASSWORD,
+    "pageTitle": "《和平精英》主播专属赠送",
+    "eyebrow": "前往礼包码兑换",
+    "subtitle": "限时福利装备领取",
+    "backgroundColor": "#526780",
+    "accentColor": "#d71920",
+    "textColor": "#ffffff",
+    "claimLoadingColor": "#52d6fc",
+    "bannerImage": "/uploads/event-banner-weapons.png",
+    "bannerOverlayText": "参与活动即可获得丰厚游戏奖励",
+    "bannerOverlayBorderColor": "#af0e4e",
+    "characterImage": "/uploads/character-upper.png",
+    "characterVisible": true,
+    "sideRibbon": "权益退订通道",
+    "claimModalTitleTemplate": "领取「{item}」",
+    "claimModalNameLabel": "* 游戏名称",
+    "claimModalNameValue": "天成",
+    "claimModalChannelLabel": "* 渠道",
+    "claimModalChannelValue": "QQ",
+    "claimModalChannelOptions": "QQ,微信",
+    "claimModalButtonText": "点击领取",
+    "claimLoadingText": "领取中",
+    "claimSuccessText": "领取成功，24小时内登陆游戏到帐邮箱",
+    "equipmentCount": 20,
+    "items": [
       {
-        name: "熔岩双刃",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时59分14秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "双截棍·神龙",
+        "image": "/uploads/cf-item-00.jpg",
+        "timeLabel": "29天23时59分14秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "战镰-碎刃",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "审判者骨鞭",
+        "image": "/uploads/cf-item-01.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "弗拉迪尾刺",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "熔岩双刃",
+        "image": "/uploads/cf-item-02.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "双节棍",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "1800",
-        buttonText: "免费领取"
+        "name": "折叠直刀·藏锋",
+        "image": "/uploads/cf-item-03.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "1800",
+        "buttonText": "免费领取"
       },
       {
-        name: "能量长枪",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "弗拉迪尾刺",
+        "image": "/uploads/cf-item-04.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "赤焰短刃",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "蝴蝶刀·冷锋",
+        "image": "/uploads/cf-item-05.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "幻影军刺",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2800",
-        buttonText: "免费领取"
+        "name": "火焰刀·维列",
+        "image": "/uploads/cf-item-06.jpg",
+        "timeLabel": "29天23时59分14秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "冰霜战斧",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3000",
-        buttonText: "免费领取"
+        "name": "机械拳套·破风",
+        "image": "/uploads/cf-item-07.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "雷霆短刀",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "战镰·碎刃",
+        "image": "/uploads/cf-item-08.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "星陨长刃",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "云舟机关扇",
+        "image": "/uploads/cf-item-09.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "1800",
+        "buttonText": "免费领取"
       },
       {
-        name: "破晓弯刀",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "苏尔南·暗潮",
+        "image": "/uploads/cf-item-10.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "暗影匕首",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2400",
-        buttonText: "免费领取"
+        "name": "苏尔南·怒嚎",
+        "image": "/uploads/cf-item-11.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "烈焰战锤",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3000",
-        buttonText: "免费领取"
+        "name": "熔岩双刃",
+        "image": "/uploads/sample-item-1.jpg",
+        "timeLabel": "29天23时59分14秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "极光长枪",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2800",
-        buttonText: "免费领取"
+        "name": "战镰-碎刃",
+        "image": "/uploads/sample-item-2.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "苍穹短刃",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "弗拉迪尾刺",
+        "image": "/uploads/sample-item-3.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "赤月双刀",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "双节棍",
+        "image": "/uploads/sample-item-1.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "1800",
+        "buttonText": "免费领取"
       },
       {
-        name: "疾风战刃",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "能量长枪",
+        "image": "/uploads/sample-item-2.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "龙魂长刀",
-        image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3200",
-        buttonText: "免费领取"
+        "name": "赤焰短刃",
+        "image": "/uploads/sample-item-3.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "2600",
+        "buttonText": "免费领取"
       },
       {
-        name: "夜行军刀",
-        image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "2600",
-        buttonText: "免费领取"
+        "name": "熔岩双刃",
+        "image": "/uploads/sample-item-1.jpg",
+        "timeLabel": "29天23时59分14秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       },
       {
-        name: "王者战枪",
-        image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29天23时58分42秒",
-        stockLabel: "限量 500 份",
-        price: "0",
-        originalPrice: "3600",
-        buttonText: "免费领取"
+        "name": "战镰-碎刃",
+        "image": "/uploads/sample-item-2.jpg",
+        "timeLabel": "29天23时58分42秒",
+        "stockLabel": "限量 500 份",
+        "price": "0",
+        "originalPrice": "3200",
+        "buttonText": "免费领取"
       }
     ]
   };
@@ -370,6 +370,8 @@ function isLegacyEnglishDefault(config) {
   return (
     config.pageTitle === "Equipment Campaign" ||
     firstItemName === "Reward 1" ||
+    firstItemName === "????" ||
+    config.items?.[6]?.name === "????" ||
     firstTimeLabel.includes("days")
   );
 }
