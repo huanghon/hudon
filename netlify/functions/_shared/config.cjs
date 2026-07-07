@@ -11,56 +11,209 @@ const MAX_UPLOAD_BYTES = 3 * 1024 * 1024;
 function defaultConfig() {
   return {
     accessPassword: DEFAULT_ACCESS_PASSWORD,
-    pageTitle: "Equipment Campaign",
-    eyebrow: "Gift code exchange",
-    subtitle: "Limited-time equipment claim",
-    backgroundColor: "#111820",
+    pageTitle: "《和平精英》主播专属赠送",
+    eyebrow: "前往礼包码兑换",
+    subtitle: "限时福利装备领取",
+    backgroundColor: "#526780",
     accentColor: "#d71920",
     textColor: "#ffffff",
     claimLoadingColor: "#6fbfff",
-    bannerImage: "/uploads/sample-banner.jpg",
-    bannerOverlayText: "Join the event to claim rewards",
-    bannerOverlayBorderColor: "#41caff",
+    bannerImage: "/uploads/event-banner-weapons.png",
+    bannerOverlayText: "参与活动即可获得丰厚游戏奖励",
+    bannerOverlayBorderColor: "#af0e4e",
     characterImage: "/uploads/character-upper.png",
     characterVisible: true,
-    sideRibbon: "Benefits channel",
-    claimModalTitleTemplate: "Claim {item}",
-    claimModalNameLabel: "* Game name",
-    claimModalNameValue: "",
-    claimModalChannelLabel: "* Channel",
+    sideRibbon: "权益退订通道",
+    claimModalTitleTemplate: "领取「{item}」",
+    claimModalNameLabel: "* 游戏名称",
+    claimModalNameValue: "天成",
+    claimModalChannelLabel: "* 渠道",
     claimModalChannelValue: "QQ",
-    claimModalChannelOptions: "QQ,Wechat",
-    claimModalButtonText: "Claim now",
-    claimLoadingText: "Claiming...",
-    claimSuccessText: "Claimed successfully. Please check in game later.",
-    equipmentCount: 6,
+    claimModalChannelOptions: "QQ,微信",
+    claimModalButtonText: "点击领取",
+    claimLoadingText: "领取中...",
+    claimSuccessText: "领取成功！24小时后登录游戏查看游戏仓库",
+    equipmentCount: 20,
     items: [
       {
-        name: "Reward 1",
+        name: "熔岩双刃",
         image: "/uploads/sample-item-1.jpg",
-        timeLabel: "29 days 3 hours 9 minutes 4 seconds",
-        stockLabel: "Limited 500",
+        timeLabel: "29天23时59分14秒",
+        stockLabel: "限量 500 份",
         price: "0",
         originalPrice: "3200",
-        buttonText: "Free claim"
+        buttonText: "免费领取"
       },
       {
-        name: "Reward 2",
+        name: "战镰-碎刃",
         image: "/uploads/sample-item-2.jpg",
-        timeLabel: "29 days 3 hours 8 minutes 2 seconds",
-        stockLabel: "Limited 500",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
         price: "0",
         originalPrice: "3200",
-        buttonText: "Free claim"
+        buttonText: "免费领取"
       },
       {
-        name: "Reward 3",
+        name: "弗拉迪尾刺",
         image: "/uploads/sample-item-3.jpg",
-        timeLabel: "29 days 3 hours 8 minutes 2 seconds",
-        stockLabel: "Limited 500",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
         price: "0",
         originalPrice: "3200",
-        buttonText: "Free claim"
+        buttonText: "免费领取"
+      },
+      {
+        name: "双节棍",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "1800",
+        buttonText: "免费领取"
+      },
+      {
+        name: "能量长枪",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "赤焰短刃",
+        image: "/uploads/sample-item-3.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "幻影军刺",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2800",
+        buttonText: "免费领取"
+      },
+      {
+        name: "冰霜战斧",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3000",
+        buttonText: "免费领取"
+      },
+      {
+        name: "雷霆短刀",
+        image: "/uploads/sample-item-3.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "星陨长刃",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3200",
+        buttonText: "免费领取"
+      },
+      {
+        name: "破晓弯刀",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "暗影匕首",
+        image: "/uploads/sample-item-3.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2400",
+        buttonText: "免费领取"
+      },
+      {
+        name: "烈焰战锤",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3000",
+        buttonText: "免费领取"
+      },
+      {
+        name: "极光长枪",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2800",
+        buttonText: "免费领取"
+      },
+      {
+        name: "苍穹短刃",
+        image: "/uploads/sample-item-3.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "赤月双刀",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3200",
+        buttonText: "免费领取"
+      },
+      {
+        name: "疾风战刃",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "龙魂长刀",
+        image: "/uploads/sample-item-3.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3200",
+        buttonText: "免费领取"
+      },
+      {
+        name: "夜行军刀",
+        image: "/uploads/sample-item-1.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "2600",
+        buttonText: "免费领取"
+      },
+      {
+        name: "王者战枪",
+        image: "/uploads/sample-item-2.jpg",
+        timeLabel: "29天23时58分42秒",
+        stockLabel: "限量 500 份",
+        price: "0",
+        originalPrice: "3600",
+        buttonText: "免费领取"
       }
     ]
   };
@@ -180,7 +333,14 @@ async function readConfig() {
   }
   const rows = await response.json();
   if (!rows.length) return sanitizeConfig(defaultConfig());
-  return sanitizeConfig(rows[0].config || {});
+  const stored = sanitizeConfig(rows[0].config || {});
+  if (isLegacyEnglishDefault(stored)) {
+    return sanitizeConfig({
+      ...defaultConfig(),
+      accessPassword: stored.accessPassword
+    });
+  }
+  return stored;
 }
 
 async function writeConfig(config) {
@@ -202,6 +362,16 @@ async function writeConfig(config) {
     throw new Error(await response.text());
   }
   return safe;
+}
+
+function isLegacyEnglishDefault(config) {
+  const firstItemName = config.items?.[0]?.name || "";
+  const firstTimeLabel = config.items?.[0]?.timeLabel || "";
+  return (
+    config.pageTitle === "Equipment Campaign" ||
+    firstItemName === "Reward 1" ||
+    firstTimeLabel.includes("days")
+  );
 }
 
 function authToken(password) {
