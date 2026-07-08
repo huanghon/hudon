@@ -81,6 +81,16 @@
                 <input name="subtitleColor" type="color">
               </label>
               <label>
+                ???????
+                <select name="subtitleFrameStyle">
+                  <option value="game-gold">?????</option>
+                  <option value="game-blue">?????</option>
+                  <option value="game-red">?????</option>
+                  <option value="simple">?????</option>
+                  <option value="none">??</option>
+                </select>
+              </label>
+              <label>
                 装备数量
                 <input name="equipmentCount" type="number" min="1" max="20" step="1">
               </label>
@@ -147,9 +157,12 @@
                 <input name="bannerOverlayTextVisible" type="checkbox">
                 显示横幅底部文字
               </label>
-              <label class="toggle-field">
-                <input name="bannerOverlayBorderVisible" type="checkbox">
-                显示横幅文字边框 (图二框框，不勾选为无框)
+              <label>
+                横幅文字样式
+                <select name="bannerOverlayStyle">
+                  <option value="frame">图二框框</option>
+                  <option value="none">无框文字</option>
+                </select>
               </label>
             </div>
             <div class="field-grid">

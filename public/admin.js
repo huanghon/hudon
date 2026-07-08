@@ -68,6 +68,10 @@ function clampEquipmentCount(value) {
   return Math.max(1, Math.min(20, count));
 }
 
+function normalizeSubtitleFrameStyle(value) {
+  return ["none", "game-gold", "game-blue", "game-red", "simple"].includes(value) ? value : "game-gold";
+}
+
 function fileToDataUrl(file) {
   return new Promise((resolve, reject) => {
     if (file.size > MAX_UPLOAD_SIZE) {
@@ -121,6 +125,9 @@ function fillForm(config) {
   form.elements.accentColor.value = config.accentColor || "#d71920";
   form.elements.textColor.value = config.textColor || "#ffffff";
   form.elements.subtitleColor.value = config.subtitleColor || "#ffffff";
+  if (form.elements.subtitleFrameStyle) {
+    form.elements.subtitleFrameStyle.value = normalizeSubtitleFrameStyle(config.subtitleFrameStyle);
+  }
   form.elements.eyebrowColor.value = config.eyebrowColor || "#ffffff";
   form.elements.eyebrowFontSize.value = config.eyebrowFontSize || 15;
   form.elements.eyebrowFontWeight.value = config.eyebrowFontWeight || "700";
@@ -131,7 +138,13 @@ function fillForm(config) {
   form.elements.bannerScale.value = config.bannerScale !== undefined ? config.bannerScale : 1.0;
   form.elements.bannerOverlayText.value = config.bannerOverlayText || "参与活动即可获得丰厚游戏奖励";
   form.elements.bannerOverlayTextVisible.checked = config.bannerOverlayTextVisible !== false;
-  form.elements.bannerOverlayBorderVisible.checked = config.bannerOverlayBorderVisible !== false;
+  const overlayStyle = config.bannerOverlayStyle || (config.bannerOverlayBorderVisible === false ? "none" : "frame");
+  if (form.elements.bannerOverlayStyle) {
+    form.elements.bannerOverlayStyle.value = overlayStyle === "none" ? "none" : "frame";
+  }
+  if (form.elements.bannerOverlayBorderVisible) {
+    form.elements.bannerOverlayBorderVisible.checked = overlayStyle !== "none";
+  }
   form.elements.bannerOverlayBorderColor.value = config.bannerOverlayBorderColor || "#41caff";
   form.elements.bannerOverlayTextColor.value = config.bannerOverlayTextColor || "#d9f4ff";
   renderItemEditors();
@@ -203,6 +216,7 @@ function collectConfig() {
     accentColor: form.elements.accentColor.value,
     textColor: form.elements.textColor.value,
     subtitleColor: form.elements.subtitleColor.value,
+    subtitleFrameStyle: normalizeSubtitleFrameStyle(form.elements.subtitleFrameStyle ? form.elements.subtitleFrameStyle.value : currentConfig.subtitleFrameStyle),
     eyebrowColor: form.elements.eyebrowColor.value,
     eyebrowFontSize: Number(form.elements.eyebrowFontSize.value) || 15,
     eyebrowFontWeight: form.elements.eyebrowFontWeight.value,
@@ -213,7 +227,8 @@ function collectConfig() {
     bannerScale: Number(form.elements.bannerScale.value) || 1.0,
     bannerOverlayText: form.elements.bannerOverlayText.value.trim(),
     bannerOverlayTextVisible: form.elements.bannerOverlayTextVisible.checked,
-    bannerOverlayBorderVisible: form.elements.bannerOverlayBorderVisible.checked,
+    bannerOverlayStyle: form.elements.bannerOverlayStyle ? form.elements.bannerOverlayStyle.value : (form.elements.bannerOverlayBorderVisible.checked ? "frame" : "none"),
+    bannerOverlayBorderVisible: form.elements.bannerOverlayStyle ? form.elements.bannerOverlayStyle.value !== "none" : form.elements.bannerOverlayBorderVisible.checked,
     bannerOverlayBorderColor: form.elements.bannerOverlayBorderColor.value,
     bannerOverlayTextColor: form.elements.bannerOverlayTextColor.value,
     claimModalChannelOptions: form.elements.claimModalChannelOptions.value.trim(),

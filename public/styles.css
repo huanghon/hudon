@@ -33,7 +33,8 @@ body.modal-open {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -151,25 +152,41 @@ input {
 
 .banner-overlay-text {
   position: absolute;
-  left: 64px;
-  right: 64px;
-  bottom: 15px;
+  left: 38px;
+  right: 38px;
+  bottom: 13px;
   z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
-  border: 1px solid var(--banner-line);
-  background: rgba(4, 18, 30, 0.48);
+  min-height: 44px;
+  padding: 6px 16px;
+  border: 3px solid var(--banner-line);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--banner-line), #ffffff 62%), color-mix(in srgb, var(--banner-line), #062d4b 22%));
   color: var(--banner-text);
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 900;
   line-height: 1.25;
   text-align: center;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.34),
+    0 2px 8px rgba(0, 0, 0, 0.55);
   box-shadow:
-    inset 0 0 18px color-mix(in srgb, var(--banner-line), transparent 72%),
-    0 0 12px color-mix(in srgb, var(--banner-line), transparent 68%);
+    inset 0 0 0 2px rgba(255, 255, 255, 0.38),
+    inset 0 -10px 28px color-mix(in srgb, var(--banner-line), #001428 50%),
+    0 0 0 1px color-mix(in srgb, var(--banner-line), #001428 42%),
+    0 8px 18px rgba(0, 0, 0, 0.38);
+  clip-path: polygon(
+    18px 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    18px 100%,
+    0 calc(100% - 18px),
+    0 12px
+  );
   overflow-wrap: anywhere;
 }
 
@@ -177,6 +194,10 @@ input {
   border-color: transparent;
   background: transparent;
   box-shadow: none;
+  clip-path: none;
+  min-height: 32px;
+  padding: 0;
+  font-size: 14px;
 }
 
 .banner-overlay-text.no-border::before,
@@ -188,20 +209,19 @@ input {
 .banner-overlay-text::after {
   content: "";
   position: absolute;
-  top: -5px;
-  width: 14px;
-  height: 14px;
-  border-top: 2px solid var(--banner-line);
+  top: 4px;
+  width: 42px;
+  height: 8px;
+  border-top: 3px solid color-mix(in srgb, var(--banner-line), #ffffff 52%);
+  border-bottom: 3px solid color-mix(in srgb, var(--banner-line), #001428 35%);
 }
 
 .banner-overlay-text::before {
-  left: -5px;
-  border-left: 2px solid var(--banner-line);
+  left: 18px;
 }
 
 .banner-overlay-text::after {
-  right: -5px;
-  border-right: 2px solid var(--banner-line);
+  right: 18px;
 }
 
 .floating-side-access {
@@ -285,32 +305,80 @@ input {
   justify-content: center;
   margin: 12px auto 0;
   padding: 6px 20px;
-  background: linear-gradient(90deg, #ffb800 0%, #ff7a00 100%);
-  color: #0b1520;
+  color: var(--subtitle-color);
   font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
   border-radius: 4px;
-  box-shadow: 
-    0 4px 15px rgba(255, 122, 0, 0.4),
-    inset 0 0 8px rgba(255, 255, 255, 0.5);
-  border: 1.5px solid #ffdd80;
   text-transform: uppercase;
-  clip-path: polygon(
-    8px 0%, 
-    calc(100% - 8px) 0%, 
-    100% 8px, 
-    100% calc(100% - 8px), 
-    calc(100% - 8px) 100%, 
-    8px 100%, 
-    0% calc(100% - 8px), 
-    0% 8px
-  );
   overflow: hidden;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.28), 0 2px 8px rgba(0, 0, 0, 0.42);
 }
 
-.title-area p::before {
+.subtitle-frame-none {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.68);
+}
+
+.subtitle-frame-game-gold,
+.subtitle-frame-game-blue,
+.subtitle-frame-game-red {
+  border: 2px solid var(--subtitle-frame-line, #ffdd80);
+  background: linear-gradient(90deg, var(--subtitle-frame-start, #ffb800) 0%, var(--subtitle-frame-end, #ff7a00) 100%);
+  color: var(--subtitle-frame-text, #0b1520);
+  box-shadow:
+    0 4px 15px var(--subtitle-frame-glow, rgba(255, 122, 0, 0.4)),
+    inset 0 0 8px rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    8px 0%,
+    calc(100% - 8px) 0%,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0% calc(100% - 8px),
+    0% 8px
+  );
+}
+
+.subtitle-frame-game-gold {
+  --subtitle-frame-start: #ffcc25;
+  --subtitle-frame-end: #ff7a00;
+  --subtitle-frame-line: #ffe9a8;
+  --subtitle-frame-text: #241000;
+  --subtitle-frame-glow: rgba(255, 122, 0, 0.45);
+}
+
+.subtitle-frame-game-blue {
+  --subtitle-frame-start: #61e8ff;
+  --subtitle-frame-end: #1672ff;
+  --subtitle-frame-line: #b7f6ff;
+  --subtitle-frame-text: #02182e;
+  --subtitle-frame-glow: rgba(42, 175, 255, 0.42);
+}
+
+.subtitle-frame-game-red {
+  --subtitle-frame-start: #ff765d;
+  --subtitle-frame-end: #d71920;
+  --subtitle-frame-line: #ffd0c6;
+  --subtitle-frame-text: #fff7ee;
+  --subtitle-frame-glow: rgba(215, 25, 32, 0.45);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle-frame-simple {
+  border: 1.5px solid currentColor;
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.12), 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.subtitle-frame-game-gold::before,
+.subtitle-frame-game-blue::before,
+.subtitle-frame-game-red::before {
   content: "";
   position: absolute;
   top: 0;
@@ -718,7 +786,8 @@ label {
   min-height: 18px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 40px;
   border: 1px solid #d6dbe4;

@@ -10,10 +10,12 @@ const fallbackConfig = {
   bannerOverlayText: "参与活动即可获得丰厚游戏奖励",
   bannerOverlayBorderColor: "#41caff",
   bannerOverlayTextColor: "#d9f4ff",
+  bannerOverlayStyle: "frame",
   bannerScale: 1.0,
   bannerOverlayTextVisible: true,
   bannerOverlayBorderVisible: true,
   subtitleColor: "#ffffff",
+  subtitleFrameStyle: "game-gold",
   eyebrowColor: "rgba(255, 255, 255, 0.72)",
   eyebrowFontSize: 15,
   eyebrowFontWeight: 700,
@@ -139,6 +141,18 @@ function setRequiredLabel(id, value) {
   }
 
   element.textContent = text;
+}
+
+function getSubtitleFrameStyle(config) {
+  const allowed = ["none", "game-gold", "game-blue", "game-red", "simple"];
+  return allowed.includes(config.subtitleFrameStyle) ? config.subtitleFrameStyle : "game-gold";
+}
+
+function getBannerOverlayStyle(config) {
+  if (config.bannerOverlayStyle === "none" || config.bannerOverlayStyle === "frame") {
+    return config.bannerOverlayStyle;
+  }
+  return config.bannerOverlayBorderVisible === false ? "none" : "frame";
 }
 
 function parseCountdownSeconds(label) {
@@ -276,6 +290,10 @@ function renderPage(config) {
   setText("eyebrow", safeConfig.eyebrow);
   setText("pageTitle", safeConfig.pageTitle);
   setText("subtitle", safeConfig.subtitle);
+  const subtitle = document.getElementById("subtitle");
+  if (subtitle) {
+    subtitle.className = `subtitle-frame subtitle-frame-${getSubtitleFrameStyle(safeConfig)}`;
+  }
   setText("sideRibbon", safeConfig.sideRibbon);
 
   const banner = document.getElementById("bannerImage");
@@ -286,7 +304,7 @@ function renderPage(config) {
   if (bannerOverlay) {
     bannerOverlay.hidden = safeConfig.bannerOverlayTextVisible === false;
     setText("bannerOverlayText", safeConfig.bannerOverlayText);
-    if (safeConfig.bannerOverlayBorderVisible === false) {
+    if (getBannerOverlayStyle(safeConfig) === "none") {
       bannerOverlay.classList.add("no-border");
     } else {
       bannerOverlay.classList.remove("no-border");

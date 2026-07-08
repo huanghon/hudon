@@ -82,6 +82,7 @@ function defaultConfig() {
     bannerOverlayTextVisible: true,
     bannerOverlayBorderVisible: true,
     subtitleColor: "#ffffff",
+    subtitleFrameStyle: "game-gold",
     eyebrowColor: "#ffffff",
     eyebrowFontSize: 15,
     eyebrowFontWeight: "700",
