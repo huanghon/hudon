@@ -149,13 +149,19 @@
               </label>
               <label class="toggle-field">
                 <input name="bannerOverlayBorderVisible" type="checkbox">
-                显示横幅文字边框
+                显示横幅文字边框 (图二框框，不勾选为无框)
               </label>
             </div>
-            <label>
-              横幅文字框颜色
-              <input name="bannerOverlayBorderColor" type="color">
-            </label>
+            <div class="field-grid">
+              <label>
+                横幅文字框颜色
+                <input name="bannerOverlayBorderColor" type="color">
+              </label>
+              <label>
+                横幅文字颜色
+                <input name="bannerOverlayTextColor" type="color">
+              </label>
+            </div>
             <label class="file-field">
               上传横幅图片
               <input id="bannerUpload" type="file" accept="image/*">

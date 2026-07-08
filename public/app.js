@@ -9,6 +9,7 @@ const fallbackConfig = {
   bannerImage: "/uploads/sample-banner.jpg",
   bannerOverlayText: "参与活动即可获得丰厚游戏奖励",
   bannerOverlayBorderColor: "#41caff",
+  bannerOverlayTextColor: "#d9f4ff",
   bannerScale: 1.0,
   bannerOverlayTextVisible: true,
   bannerOverlayBorderVisible: true,
@@ -292,6 +293,7 @@ function renderPage(config) {
     }
   }
   document.documentElement.style.setProperty("--banner-line", safeConfig.bannerOverlayBorderColor || "#41caff");
+  document.documentElement.style.setProperty("--banner-text", safeConfig.bannerOverlayTextColor || "#d9f4ff");
 
   const sideAccess = document.getElementById("floatingSideAccess");
   const character = document.getElementById("sideCharacter");

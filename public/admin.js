@@ -133,6 +133,7 @@ function fillForm(config) {
   form.elements.bannerOverlayTextVisible.checked = config.bannerOverlayTextVisible !== false;
   form.elements.bannerOverlayBorderVisible.checked = config.bannerOverlayBorderVisible !== false;
   form.elements.bannerOverlayBorderColor.value = config.bannerOverlayBorderColor || "#41caff";
+  form.elements.bannerOverlayTextColor.value = config.bannerOverlayTextColor || "#d9f4ff";
   renderItemEditors();
 }
 
@@ -214,6 +215,7 @@ function collectConfig() {
     bannerOverlayTextVisible: form.elements.bannerOverlayTextVisible.checked,
     bannerOverlayBorderVisible: form.elements.bannerOverlayBorderVisible.checked,
     bannerOverlayBorderColor: form.elements.bannerOverlayBorderColor.value,
+    bannerOverlayTextColor: form.elements.bannerOverlayTextColor.value,
     claimModalChannelOptions: form.elements.claimModalChannelOptions.value.trim(),
     items: currentConfig.items
   };

@@ -175,6 +175,7 @@ input {
 
 .banner-overlay-text.no-border {
   border-color: transparent;
+  background: transparent;
   box-shadow: none;
 }
 
