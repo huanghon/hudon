@@ -134,7 +134,7 @@ input {
   width: calc(100% + (var(--stage-pad) * 2));
   margin-inline: calc(var(--stage-pad) * -1);
   margin-top: var(--banner-offset-y);
-  min-height: 190px;
+  min-height: 240px;
   border-radius: 0;
   background: rgba(255, 255, 255, 0.08);
 }
@@ -142,7 +142,7 @@ input {
 .hero-image {
   display: block;
   width: 100%;
-  aspect-ratio: 12 / 7;
+  aspect-ratio: 12 / 9;
   object-fit: cover;
   transform: scale(var(--banner-scale));
   transform-origin: center center;
