@@ -124,6 +124,7 @@ function fillForm(config) {
   form.elements.eyebrowColor.value = config.eyebrowColor || "#ffffff";
   form.elements.eyebrowFontSize.value = config.eyebrowFontSize || 15;
   form.elements.eyebrowFontWeight.value = config.eyebrowFontWeight || "700";
+  form.elements.eyebrowFontFamily.value = config.eyebrowFontFamily || "inherit";
   form.elements.claimLoadingColor.value = config.claimLoadingColor || "#6fbfff";
   form.elements.equipmentCount.value = clampEquipmentCount(config.equipmentCount);
   form.elements.bannerImage.value = config.bannerImage || "";
@@ -204,6 +205,7 @@ function collectConfig() {
     eyebrowColor: form.elements.eyebrowColor.value,
     eyebrowFontSize: Number(form.elements.eyebrowFontSize.value) || 15,
     eyebrowFontWeight: form.elements.eyebrowFontWeight.value,
+    eyebrowFontFamily: form.elements.eyebrowFontFamily.value,
     claimLoadingColor: form.elements.claimLoadingColor.value,
     equipmentCount: clampEquipmentCount(form.elements.equipmentCount.value),
     bannerImage: form.elements.bannerImage.value.trim(),

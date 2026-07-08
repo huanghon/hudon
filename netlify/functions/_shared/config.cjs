@@ -28,6 +28,7 @@ function defaultConfig() {
     "eyebrowColor": "#ffffff",
     "eyebrowFontSize": 15,
     "eyebrowFontWeight": "700",
+    "eyebrowFontFamily": "inherit",
     "characterImage": "/uploads/character-upper.png",
     "characterVisible": true,
     "sideRibbon": "权益退订通道",
@@ -270,6 +271,7 @@ function sanitizeConfig(input = {}, existing = defaultConfig()) {
   safe.eyebrowColor = cleanText(input.eyebrowColor, safe.eyebrowColor);
   safe.eyebrowFontSize = Number(input.eyebrowFontSize) || 15;
   safe.eyebrowFontWeight = cleanText(input.eyebrowFontWeight, safe.eyebrowFontWeight);
+  safe.eyebrowFontFamily = cleanText(input.eyebrowFontFamily, safe.eyebrowFontFamily);
   safe.characterImage = cleanImageSource(input.characterImage, safe.characterImage);
   safe.characterVisible = input.characterVisible !== false;
   safe.sideRibbon = cleanText(input.sideRibbon, safe.sideRibbon);
