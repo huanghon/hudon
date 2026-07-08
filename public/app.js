@@ -13,6 +13,9 @@ const fallbackConfig = {
   bannerOverlayTextVisible: true,
   bannerOverlayBorderVisible: true,
   subtitleColor: "#ffffff",
+  eyebrowColor: "rgba(255, 255, 255, 0.72)",
+  eyebrowFontSize: 15,
+  eyebrowFontWeight: 700,
   characterImage: "/uploads/character-upper.png",
   characterVisible: true,
   sideRibbon: "权益退订通道",
@@ -260,6 +263,9 @@ function renderPage(config) {
   document.documentElement.style.setProperty("--accent", safeConfig.accentColor);
   document.documentElement.style.setProperty("--text", safeConfig.textColor);
   document.documentElement.style.setProperty("--subtitle-color", safeConfig.subtitleColor || "rgba(255, 255, 255, 0.72)");
+  document.documentElement.style.setProperty("--eyebrow-color", safeConfig.eyebrowColor || "rgba(255, 255, 255, 0.72)");
+  document.documentElement.style.setProperty("--eyebrow-size", (safeConfig.eyebrowFontSize || 15) + "px");
+  document.documentElement.style.setProperty("--eyebrow-weight", safeConfig.eyebrowFontWeight || 700);
   document.documentElement.style.setProperty("--claim-loading", safeConfig.claimLoadingColor || "#6fbfff");
   document.documentElement.style.setProperty("--banner-scale", safeConfig.bannerScale !== undefined ? safeConfig.bannerScale : 1.0);
   document.title = safeConfig.pageTitle || document.title;

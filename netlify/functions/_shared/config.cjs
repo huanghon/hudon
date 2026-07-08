@@ -25,6 +25,9 @@ function defaultConfig() {
     "bannerOverlayTextVisible": true,
     "bannerOverlayBorderVisible": true,
     "subtitleColor": "#ffffff",
+    "eyebrowColor": "#ffffff",
+    "eyebrowFontSize": 15,
+    "eyebrowFontWeight": "700",
     "characterImage": "/uploads/character-upper.png",
     "characterVisible": true,
     "sideRibbon": "权益退订通道",
@@ -264,6 +267,9 @@ function sanitizeConfig(input = {}, existing = defaultConfig()) {
   safe.bannerOverlayTextVisible = input.bannerOverlayTextVisible !== false;
   safe.bannerOverlayBorderVisible = input.bannerOverlayBorderVisible !== false;
   safe.subtitleColor = cleanText(input.subtitleColor, safe.subtitleColor);
+  safe.eyebrowColor = cleanText(input.eyebrowColor, safe.eyebrowColor);
+  safe.eyebrowFontSize = Number(input.eyebrowFontSize) || 15;
+  safe.eyebrowFontWeight = cleanText(input.eyebrowFontWeight, safe.eyebrowFontWeight);
   safe.characterImage = cleanImageSource(input.characterImage, safe.characterImage);
   safe.characterVisible = input.characterVisible !== false;
   safe.sideRibbon = cleanText(input.sideRibbon, safe.sideRibbon);

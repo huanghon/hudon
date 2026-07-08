@@ -123,9 +123,9 @@ input {
   justify-content: center;
   position: relative;
   min-height: 44px;
-  color: var(--muted);
-  font-size: 15px;
-  font-weight: 700;
+  color: var(--eyebrow-color, var(--muted));
+  font-size: var(--eyebrow-size, 15px);
+  font-weight: var(--eyebrow-weight, 700);
 }
 
 .hero-wrap {

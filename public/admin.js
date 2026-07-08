@@ -121,6 +121,9 @@ function fillForm(config) {
   form.elements.accentColor.value = config.accentColor || "#d71920";
   form.elements.textColor.value = config.textColor || "#ffffff";
   form.elements.subtitleColor.value = config.subtitleColor || "#ffffff";
+  form.elements.eyebrowColor.value = config.eyebrowColor || "#ffffff";
+  form.elements.eyebrowFontSize.value = config.eyebrowFontSize || 15;
+  form.elements.eyebrowFontWeight.value = config.eyebrowFontWeight || "700";
   form.elements.claimLoadingColor.value = config.claimLoadingColor || "#6fbfff";
   form.elements.equipmentCount.value = clampEquipmentCount(config.equipmentCount);
   form.elements.bannerImage.value = config.bannerImage || "";
@@ -198,6 +201,9 @@ function collectConfig() {
     accentColor: form.elements.accentColor.value,
     textColor: form.elements.textColor.value,
     subtitleColor: form.elements.subtitleColor.value,
+    eyebrowColor: form.elements.eyebrowColor.value,
+    eyebrowFontSize: Number(form.elements.eyebrowFontSize.value) || 15,
+    eyebrowFontWeight: form.elements.eyebrowFontWeight.value,
     claimLoadingColor: form.elements.claimLoadingColor.value,
     equipmentCount: clampEquipmentCount(form.elements.equipmentCount.value),
     bannerImage: form.elements.bannerImage.value.trim(),
