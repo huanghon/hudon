@@ -242,8 +242,19 @@ function collectConfig() {
   return config;
 }
 
+function getPreviewFrame() {
+  return document.querySelector(".preview-frame iframe");
+}
+
+function syncPreviewFromForm() {
+  const iframe = getPreviewFrame();
+  const previewWindow = iframe?.contentWindow;
+  if (!previewWindow?.renderCampaignPreview || !currentConfig) return;
+  previewWindow.renderCampaignPreview(collectConfig());
+}
+
 function refreshPreview() {
-  const iframe = document.querySelector(".preview-frame iframe");
+  const iframe = getPreviewFrame();
   iframe.src = `/?t=${Date.now()}`;
 }
 
@@ -251,6 +262,15 @@ form.elements.equipmentCount.addEventListener("input", () => {
   currentConfig.equipmentCount = clampEquipmentCount(form.elements.equipmentCount.value);
   renderItemEditors();
 });
+
+["subtitleFrameColor", "subtitleColor", "subtitleFrameStyle"].forEach((name) => {
+  const field = form.elements[name];
+  if (!field) return;
+  field.addEventListener("input", syncPreviewFromForm);
+  field.addEventListener("change", syncPreviewFromForm);
+});
+
+getPreviewFrame()?.addEventListener("load", syncPreviewFromForm);
 
 document.getElementById("bannerUpload").addEventListener("change", async (event) => {
   const file = event.target.files[0];
@@ -281,6 +301,7 @@ form.addEventListener("submit", async (event) => {
   saveStatus.textContent = "保存中...";
   try {
     currentConfig = await saveConfig(collectConfig());
+    fillForm(currentConfig);
     form.elements.accessPassword.value = "";
     saveStatus.textContent = "已保存";
     refreshPreview();

@@ -364,3 +364,5 @@ document.addEventListener("keydown", (event) => {
 
 document.getElementById("authForm").addEventListener("submit", submitAuth);
 bootPage();
+
+window.renderCampaignPreview = renderPage;
