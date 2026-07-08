@@ -199,6 +199,8 @@ function sanitizeConfig(input, existing = defaultConfig()) {
   safe.bannerOverlayTextVisible = input.bannerOverlayTextVisible !== false;
   safe.bannerOverlayBorderVisible = input.bannerOverlayBorderVisible !== false;
   safe.subtitleColor = cleanText(input.subtitleColor, safe.subtitleColor);
+  safe.subtitleFrameStyle = input.subtitleFrameStyle === "none" ? "none" : "frame";
+  safe.subtitleFrameColor = cleanText(input.subtitleFrameColor, safe.subtitleFrameColor);
   safe.eyebrowColor = cleanText(input.eyebrowColor, safe.eyebrowColor);
   safe.eyebrowFontSize = Number(input.eyebrowFontSize) || 15;
   safe.eyebrowFontWeight = cleanText(input.eyebrowFontWeight, safe.eyebrowFontWeight);
