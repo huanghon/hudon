@@ -69,7 +69,7 @@ function clampEquipmentCount(value) {
 }
 
 function normalizeSubtitleFrameStyle(value) {
-  return ["none", "game-gold", "game-blue", "game-red", "simple"].includes(value) ? value : "game-gold";
+  return value === "none" ? "none" : "frame";
 }
 
 function fileToDataUrl(file) {
@@ -125,6 +125,7 @@ function fillForm(config) {
   form.elements.accentColor.value = config.accentColor || "#d71920";
   form.elements.textColor.value = config.textColor || "#ffffff";
   form.elements.subtitleColor.value = config.subtitleColor || "#ffffff";
+  form.elements.subtitleFrameColor.value = config.subtitleFrameColor || config.bannerOverlayBorderColor || "#41caff";
   if (form.elements.subtitleFrameStyle) {
     form.elements.subtitleFrameStyle.value = normalizeSubtitleFrameStyle(config.subtitleFrameStyle);
   }
@@ -216,6 +217,7 @@ function collectConfig() {
     accentColor: form.elements.accentColor.value,
     textColor: form.elements.textColor.value,
     subtitleColor: form.elements.subtitleColor.value,
+    subtitleFrameColor: form.elements.subtitleFrameColor ? form.elements.subtitleFrameColor.value : (currentConfig.subtitleFrameColor || currentConfig.bannerOverlayBorderColor || "#41caff"),
     subtitleFrameStyle: normalizeSubtitleFrameStyle(form.elements.subtitleFrameStyle ? form.elements.subtitleFrameStyle.value : currentConfig.subtitleFrameStyle),
     eyebrowColor: form.elements.eyebrowColor.value,
     eyebrowFontSize: Number(form.elements.eyebrowFontSize.value) || 15,

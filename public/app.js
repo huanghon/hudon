@@ -15,7 +15,8 @@ const fallbackConfig = {
   bannerOverlayTextVisible: true,
   bannerOverlayBorderVisible: true,
   subtitleColor: "#ffffff",
-  subtitleFrameStyle: "game-gold",
+  subtitleFrameStyle: "frame",
+  subtitleFrameColor: "#41caff",
   eyebrowColor: "rgba(255, 255, 255, 0.72)",
   eyebrowFontSize: 15,
   eyebrowFontWeight: 700,
@@ -144,8 +145,7 @@ function setRequiredLabel(id, value) {
 }
 
 function getSubtitleFrameStyle(config) {
-  const allowed = ["none", "game-gold", "game-blue", "game-red", "simple"];
-  return allowed.includes(config.subtitleFrameStyle) ? config.subtitleFrameStyle : "game-gold";
+  return config.subtitleFrameStyle === "none" ? "none" : "frame";
 }
 
 function getBannerOverlayStyle(config) {
@@ -279,6 +279,7 @@ function renderPage(config) {
   document.documentElement.style.setProperty("--accent", safeConfig.accentColor);
   document.documentElement.style.setProperty("--text", safeConfig.textColor);
   document.documentElement.style.setProperty("--subtitle-color", safeConfig.subtitleColor || "rgba(255, 255, 255, 0.72)");
+  document.documentElement.style.setProperty("--subtitle-line", safeConfig.subtitleFrameColor || safeConfig.bannerOverlayBorderColor || "#41caff");
   document.documentElement.style.setProperty("--eyebrow-color", safeConfig.eyebrowColor || "rgba(255, 255, 255, 0.72)");
   document.documentElement.style.setProperty("--eyebrow-size", (safeConfig.eyebrowFontSize || 15) + "px");
   document.documentElement.style.setProperty("--eyebrow-weight", safeConfig.eyebrowFontWeight || 700);
