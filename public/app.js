@@ -9,6 +9,10 @@ const fallbackConfig = {
   bannerImage: "/uploads/sample-banner.jpg",
   bannerOverlayText: "参与活动即可获得丰厚游戏奖励",
   bannerOverlayBorderColor: "#41caff",
+  bannerScale: 1.0,
+  bannerOverlayTextVisible: true,
+  bannerOverlayBorderVisible: true,
+  subtitleColor: "#ffffff",
   characterImage: "/uploads/character-upper.png",
   characterVisible: true,
   sideRibbon: "权益退订通道",
@@ -255,7 +259,9 @@ function renderPage(config) {
   document.documentElement.style.setProperty("--bg", safeConfig.backgroundColor);
   document.documentElement.style.setProperty("--accent", safeConfig.accentColor);
   document.documentElement.style.setProperty("--text", safeConfig.textColor);
+  document.documentElement.style.setProperty("--subtitle-color", safeConfig.subtitleColor || "rgba(255, 255, 255, 0.72)");
   document.documentElement.style.setProperty("--claim-loading", safeConfig.claimLoadingColor || "#6fbfff");
+  document.documentElement.style.setProperty("--banner-scale", safeConfig.bannerScale !== undefined ? safeConfig.bannerScale : 1.0);
   document.title = safeConfig.pageTitle || document.title;
 
   setText("eyebrow", safeConfig.eyebrow);
@@ -266,7 +272,17 @@ function renderPage(config) {
   const banner = document.getElementById("bannerImage");
   banner.src = safeConfig.bannerImage;
   banner.alt = safeConfig.pageTitle || "活动横幅";
-  setText("bannerOverlayText", safeConfig.bannerOverlayText);
+
+  const bannerOverlay = document.getElementById("bannerOverlayText");
+  if (bannerOverlay) {
+    bannerOverlay.hidden = safeConfig.bannerOverlayTextVisible === false;
+    setText("bannerOverlayText", safeConfig.bannerOverlayText);
+    if (safeConfig.bannerOverlayBorderVisible === false) {
+      bannerOverlay.classList.add("no-border");
+    } else {
+      bannerOverlay.classList.remove("no-border");
+    }
+  }
   document.documentElement.style.setProperty("--banner-line", safeConfig.bannerOverlayBorderColor || "#41caff");
 
   const sideAccess = document.getElementById("floatingSideAccess");

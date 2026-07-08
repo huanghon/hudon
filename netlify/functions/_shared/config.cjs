@@ -21,6 +21,10 @@ function defaultConfig() {
     "bannerImage": "/uploads/event-banner-weapons.png",
     "bannerOverlayText": "参与活动即可获得丰厚游戏奖励",
     "bannerOverlayBorderColor": "#af0e4e",
+    "bannerScale": 1.0,
+    "bannerOverlayTextVisible": true,
+    "bannerOverlayBorderVisible": true,
+    "subtitleColor": "#ffffff",
     "characterImage": "/uploads/character-upper.png",
     "characterVisible": true,
     "sideRibbon": "权益退订通道",
@@ -256,6 +260,10 @@ function sanitizeConfig(input = {}, existing = defaultConfig()) {
   safe.bannerImage = cleanImageSource(input.bannerImage, safe.bannerImage);
   safe.bannerOverlayText = cleanText(input.bannerOverlayText, safe.bannerOverlayText);
   safe.bannerOverlayBorderColor = cleanText(input.bannerOverlayBorderColor, safe.bannerOverlayBorderColor);
+  safe.bannerScale = Number(input.bannerScale) || 1.0;
+  safe.bannerOverlayTextVisible = input.bannerOverlayTextVisible !== false;
+  safe.bannerOverlayBorderVisible = input.bannerOverlayBorderVisible !== false;
+  safe.subtitleColor = cleanText(input.subtitleColor, safe.subtitleColor);
   safe.characterImage = cleanImageSource(input.characterImage, safe.characterImage);
   safe.characterVisible = input.characterVisible !== false;
   safe.sideRibbon = cleanText(input.sideRibbon, safe.sideRibbon);

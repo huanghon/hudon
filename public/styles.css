@@ -7,6 +7,10 @@
   --card: #f7f7f7;
   --ink: #202226;
   --banner-line: #41caff;
+  --banner-text: #d9f4ff;
+  --subtitle-color: var(--muted);
+  --banner-offset-y: 38px;
+  --banner-scale: 1;
 }
 
 * {
@@ -129,6 +133,7 @@ input {
   overflow: hidden;
   width: calc(100% + (var(--stage-pad) * 2));
   margin-inline: calc(var(--stage-pad) * -1);
+  margin-top: var(--banner-offset-y);
   min-height: 190px;
   border-radius: 0;
   background: rgba(255, 255, 255, 0.08);
@@ -139,6 +144,8 @@ input {
   width: 100%;
   aspect-ratio: 12 / 7;
   object-fit: cover;
+  transform: scale(var(--banner-scale));
+  transform-origin: center center;
 }
 
 .banner-overlay-text {
@@ -153,7 +160,7 @@ input {
   min-height: 32px;
   border: 1px solid var(--banner-line);
   background: rgba(4, 18, 30, 0.48);
-  color: #d9f4ff;
+  color: var(--banner-text);
   font-size: 14px;
   font-weight: 800;
   line-height: 1.25;
@@ -163,6 +170,16 @@ input {
     inset 0 0 18px color-mix(in srgb, var(--banner-line), transparent 72%),
     0 0 12px color-mix(in srgb, var(--banner-line), transparent 68%);
   overflow-wrap: anywhere;
+}
+
+.banner-overlay-text.no-border {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.banner-overlay-text.no-border::before,
+.banner-overlay-text.no-border::after {
+  display: none;
 }
 
 .banner-overlay-text::before,
@@ -261,7 +278,7 @@ input {
 
 .title-area p {
   margin: 8px 0 0;
-  color: var(--muted);
+  color: var(--subtitle-color);
   font-size: 14px;
 }
 

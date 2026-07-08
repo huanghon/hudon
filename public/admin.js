@@ -120,10 +120,14 @@ function fillForm(config) {
   form.elements.backgroundColor.value = config.backgroundColor || "#111820";
   form.elements.accentColor.value = config.accentColor || "#d71920";
   form.elements.textColor.value = config.textColor || "#ffffff";
+  form.elements.subtitleColor.value = config.subtitleColor || "#ffffff";
   form.elements.claimLoadingColor.value = config.claimLoadingColor || "#6fbfff";
   form.elements.equipmentCount.value = clampEquipmentCount(config.equipmentCount);
   form.elements.bannerImage.value = config.bannerImage || "";
+  form.elements.bannerScale.value = config.bannerScale !== undefined ? config.bannerScale : 1.0;
   form.elements.bannerOverlayText.value = config.bannerOverlayText || "参与活动即可获得丰厚游戏奖励";
+  form.elements.bannerOverlayTextVisible.checked = config.bannerOverlayTextVisible !== false;
+  form.elements.bannerOverlayBorderVisible.checked = config.bannerOverlayBorderVisible !== false;
   form.elements.bannerOverlayBorderColor.value = config.bannerOverlayBorderColor || "#41caff";
   renderItemEditors();
 }
@@ -193,10 +197,14 @@ function collectConfig() {
     backgroundColor: form.elements.backgroundColor.value,
     accentColor: form.elements.accentColor.value,
     textColor: form.elements.textColor.value,
+    subtitleColor: form.elements.subtitleColor.value,
     claimLoadingColor: form.elements.claimLoadingColor.value,
     equipmentCount: clampEquipmentCount(form.elements.equipmentCount.value),
     bannerImage: form.elements.bannerImage.value.trim(),
+    bannerScale: Number(form.elements.bannerScale.value) || 1.0,
     bannerOverlayText: form.elements.bannerOverlayText.value.trim(),
+    bannerOverlayTextVisible: form.elements.bannerOverlayTextVisible.checked,
+    bannerOverlayBorderVisible: form.elements.bannerOverlayBorderVisible.checked,
     bannerOverlayBorderColor: form.elements.bannerOverlayBorderColor.value,
     claimModalChannelOptions: form.elements.claimModalChannelOptions.value.trim(),
     items: currentConfig.items
