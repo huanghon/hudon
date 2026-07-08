@@ -279,9 +279,61 @@ input {
 }
 
 .title-area p {
-  margin: 8px 0 0;
-  color: var(--subtitle-color);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px auto 0;
+  padding: 6px 20px;
+  background: linear-gradient(90deg, #ffb800 0%, #ff7a00 100%);
+  color: #0b1520;
   font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  border-radius: 4px;
+  box-shadow: 
+    0 4px 15px rgba(255, 122, 0, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.5);
+  border: 1.5px solid #ffdd80;
+  text-transform: uppercase;
+  clip-path: polygon(
+    8px 0%, 
+    calc(100% - 8px) 0%, 
+    100% 8px, 
+    100% calc(100% - 8px), 
+    calc(100% - 8px) 100%, 
+    8px 100%, 
+    0% calc(100% - 8px), 
+    0% 8px
+  );
+  overflow: hidden;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.title-area p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine-sweep 4s infinite ease-in-out;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -50%;
+  }
+  15%, 100% {
+    left: 150%;
+  }
 }
 
 .equipment-list {
