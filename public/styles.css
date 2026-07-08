@@ -288,7 +288,7 @@ select {
   padding: 0 20px;
   min-height: 32px;
   border: 1px solid var(--subtitle-line);
-  background: rgba(4, 18, 30, 0.48);
+  background: transparent;
   color: var(--subtitle-color);
   font-size: 14px;
   font-weight: 800;
