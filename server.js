@@ -200,7 +200,8 @@ function sanitizeConfig(input, existing = defaultConfig()) {
   safe.bannerOverlayBorderVisible = input.bannerOverlayBorderVisible !== false;
   safe.subtitleColor = cleanText(input.subtitleColor, safe.subtitleColor);
   safe.subtitleFrameStyle = input.subtitleFrameStyle === "none" ? "none" : "frame";
-  safe.subtitleFrameColor = cleanText(input.subtitleFrameColor, safe.subtitleFrameColor);
+  const subtitleFrameColor = input.subtitleFrameColor || input.bannerOverlayBorderColor || existing.subtitleFrameColor || existing.bannerOverlayBorderColor;
+  safe.subtitleFrameColor = cleanText(subtitleFrameColor, safe.subtitleFrameColor);
   safe.eyebrowColor = cleanText(input.eyebrowColor, safe.eyebrowColor);
   safe.eyebrowFontSize = Number(input.eyebrowFontSize) || 15;
   safe.eyebrowFontWeight = cleanText(input.eyebrowFontWeight, safe.eyebrowFontWeight);
